@@ -9,14 +9,18 @@ app = pg.mkQApp("Stream plotting\n")
 
 print("Finding all streams...\n")
 streams = resolve_streams()
+
+if(len(streams) == 0):
+    print("No streams were found")
+    exit(0)
+
 print("Choose stream to plot\n")
 i = 1
-
-
 
 for stream in streams:
     print(i, stream.name(), stream.uid(), stream.type())
     i += 1
+
 
 x = int(input())
 stream = StreamInlet(streams[x-1], processing_flags=proc_clocksync | proc_dejitter)
