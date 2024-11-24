@@ -10,7 +10,7 @@ type = input()
 
 predicate = "name='" + name + "'" and "type='" + type + "'" and " uid='" + uid + "'"
 print("Finding stream...")
-streams = resolve_bypred(predicate, 0, 0)
+streams = resolve_bypred(predicate, 0, 0.5)
 count = len(streams)
 if(count == 0):
      print("No such streams were found")
